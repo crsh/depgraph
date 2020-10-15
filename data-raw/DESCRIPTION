@@ -1,0 +1,47 @@
+Package: multibridge
+Title: Evaluating Multinomial Order Restrictions with Bridge Sampling
+Version: 1.0
+Date: 2020-08-20
+Authors@R: c(
+	person(given = "Alexandra", family = "Sarafoglou", email = "alexandra.sarafoglou@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-0031-685X")),
+	person(given = "Joris", family = "Goosen", role = "aut"),
+	person(given = "Julia", family = "Haaf", role = "ctb"),
+	person(given = "Quentin F.", family = "Gronau", role = "aut"),
+	person(given = "Maarten", family = "Marsman", role = "ctb"),
+	person(given = "Frederik", family = "Aust", role = "ctb", comment = c(ORCID = "0000-0003-4900-788X"))
+	)
+Description: Evaluate hypotheses concerning the distribution of multinomial
+  proportions using bridge sampling. The bridge sampling routine is able to
+  compute Bayes factors for hypotheses that entail inequality constraints,
+  equality constraints, free parameters, and a mix of all three. These
+  hypotheses are tested against the encompassing hypothesis, that all parameters
+  vary freely.
+URL: https://github.com/asarafoglou/multibridge/
+BugReports: https://github.com/asarafoglou/multibridge/issues
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Imports:
+		Brobdingnag,
+		DescTools,
+		coda,
+		mvtnorm,
+		purrr,
+		Rcpp (>= 0.12.17),
+		magrittr,
+		progress,
+		Rdpack,
+		stringr
+SystemRequirements:
+		GNU make,
+		mpfr (>= 3.0.0)
+RoxygenNote: 7.1.1
+LinkingTo: Rcpp
+Suggests:
+  knitr,
+  rmarkdown,
+  testthat
+VignetteBuilder: knitr
+RdMacros: Rdpack
+Roxygen: list(markdown = TRUE)
+Depends:  R (>= 3.5.0)
