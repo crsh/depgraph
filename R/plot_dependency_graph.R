@@ -80,11 +80,11 @@ plot_dependency_graph <- function(pkg = ".", suggests = FALSE, option = "cividis
       arrow = ggplot2::arrow(length = ggplot2::unit(4, "pt"), type = "closed")
       , color = grDevices::grey(0.4)
     ) +
+    ggnetwork::geom_nodes(ggplot2::aes_(color = ~n_dependencies, size = ~importance * 7)) +
     ggnetwork::geom_nodelabel_repel(
       ggplot2::aes_(label = ~name, fontface = ~face, color = ~n_dependencies)
       , box.padding = ggplot2::unit(8, "pt")
     ) +
-    ggnetwork::geom_nodes(ggplot2::aes_(color = ~n_dependencies, size = ~importance * 7)) +
     ggplot2::scale_color_viridis_c(option = option) +
     ggplot2::scale_size(
       labels = function(x) abs(max_downstream_deps - ceiling(x / 7 * max_downstream_deps))

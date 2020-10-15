@@ -17,17 +17,17 @@ knitr::opts_chunk$set(
 Currently, `depgraph` ships only a single function that plots the dependency graph of an R package based on its `DESCRIPTION` file.
 Consider the following example.
 
-```{r fig.align = "cente", fig.cap = "Dependency graph of a historic development version of the R package `multibridge`.", fig.height = 5, fig.width = 7, warning = FALSE}
+```{r fig.align = "center", fig.cap = "Dependency graph of a historic development version of the R package `multibridge`.", fig.height = 5, fig.width = 7, warning = FALSE}
 library("depgraph")
 
 plot_dependency_graph(
-  multibridge_pkg
+  pkg = multibridge_pkg
   , suggests = FALSE
   , option = "cividis"
 )
 ```
 
-These plots can be used for at least two purposes:
+Such plots can be used for at least two purposes:
 
 1. Including dependency graphs in an R package `README` shows users how many packages their work depends on (indirectly).
 This is useful as a very rough index of package reliability (less dependencies generally mean less potential for breaking upstream changes) and installation time.
@@ -46,16 +46,19 @@ Moreover, removing `rlang` from the dependency graph has only a limited impact o
 It has relatively many upstream dependencies.
 At the same time no other package in the dependency network imports `DescTools`; it is therefore a promising candidate to reduce the dependency graph.
 
-```{r echo = FALSE}
-multibridge_pkg$imports <- gsub("DescTools,\n", "", multibridge_pkg$imports, fixed = TRUE)
-```
-
 Inspection of the code (searching the RStudio project for `DescTools` ) revealed that `multibridge` used only one function that could easily be replaced by a custom implementation.
 This resulted in a substantial reduction of indirect dependencies, as evident in the new dependency graph.
 
-```{r fig.align = "cente", fig.cap = "Dependency graph of a historic development version of the R package `multibridge` after removing `DescTools` from `Imports`.", fig.height = 5, fig.width = 7, warning = FALSE}
+```{r fig.align = "center", fig.cap = "Dependency graph of a historic development version of the R package `multibridge` after removing `DescTools` from `Imports`.", fig.height = 5, fig.width = 7, warning = FALSE}
+multibridge_pkg$imports <- gsub(
+  "DescTools,\n"
+  , ""
+  , multibridge_pkg$imports
+  , fixed = TRUE
+)
+
 plot_dependency_graph(
-  multibridge_pkg
+  pkg = multibridge_pkg
   , suggests = FALSE
   , option = "cividis"
 )
