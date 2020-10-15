@@ -10,7 +10,7 @@
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 ![GitHub last commit
-(devel)](https://img.shields.io/github/last-commit/crsh/depgraph/devel?label=Last%20commit&logo=github&logoColor=%23FFF)
+(devel)](https://img.shields.io/github/last-commit/crsh/depgraph/main?label=Last%20commit&logo=github&logoColor=%23FFF)
 [![GitHub bug
 issues](https://img.shields.io/github/issues/crsh/depgraph/bug?label=Bugs&logo=github&logoColor=%23FFF)](https://github.com/crsh/depgraph/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 <!-- badges: end -->
@@ -32,8 +32,8 @@ You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("crsh/depgraph")
+# install.packages("remotes")
+remotes::install_github("crsh/depgraph")
 ```
 
 ## Example
@@ -83,7 +83,7 @@ Some more details on how to use this graph to reduce package
 dependencies are given in the package vignette:
 
 ``` r
-vignette("depgraph", package = "depgraph")`)
+vignette("depgraph", package = "depgraph")
 ```
 
 ## Package dependencies
@@ -91,8 +91,6 @@ vignette("depgraph", package = "depgraph")`)
 Yeah, I know…:see\_no\_evil:
 
 ``` r
-library("depgraph")
-
 plot_dependency_graph(
   pkg = "."
   , suggests = FALSE

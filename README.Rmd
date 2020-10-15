@@ -11,12 +11,14 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+set.seed(65787908)
 ```
 
 # depgraph: Plot the complete dependency graph of an R package
 
 <!-- badges: start -->
-[![CRAN/METACRAN](https://img.shields.io/cran/v/depgraph?label=CRAN&logo=r)](https://cran.r-project.org/web/packages/depgraph/index.html) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) ![GitHub last commit (devel)](https://img.shields.io/github/last-commit/crsh/depgraph/devel?label=Last commit&logo=github&logoColor=%23FFF) [![GitHub bug issues](https://img.shields.io/github/issues/crsh/depgraph/bug?label=Bugs&logo=github&logoColor=%23FFF)](https://github.com/crsh/depgraph/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+[![CRAN/METACRAN](https://img.shields.io/cran/v/depgraph?label=CRAN&logo=r)](https://cran.r-project.org/web/packages/depgraph/index.html) [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) ![GitHub last commit (devel)](https://img.shields.io/github/last-commit/crsh/depgraph/main?label=Last commit&logo=github&logoColor=%23FFF) [![GitHub bug issues](https://img.shields.io/github/issues/crsh/depgraph/bug?label=Bugs&logo=github&logoColor=%23FFF)](https://github.com/crsh/depgraph/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
 <!-- badges: end -->
 
 Provides a function to plot the complete dependency graph of an R package and helps to cut down on dependencies.
@@ -34,8 +36,8 @@ install.packages("depgraph")
 You can install the development version from [GitHub](https://github.com/) with:
 
 ~~~r
-# install.packages("devtools")
-devtools::install_github("crsh/depgraph")
+# install.packages("remotes")
+remotes::install_github("crsh/depgraph")
 ~~~
 
 ## Example
@@ -63,7 +65,7 @@ Briefly, in these graphs you can look for "hot spots" in the network (big bright
 Some more details on how to use this graph to reduce package dependencies are given in the package vignette:
 
 ~~~r
-vignette("depgraph", package = "depgraph")`)
+vignette("depgraph", package = "depgraph")
 ~~~
 
 ## Package dependencies
@@ -71,8 +73,6 @@ vignette("depgraph", package = "depgraph")`)
 Yeah, I know...:see_no_evil:
 
 ```{r fig.align = "center", fig.cap = "Dependency graph of `depgraph`.", fig.height = 5, fig.width = 7, warning = FALSE}
-library("depgraph")
-
 plot_dependency_graph(
   pkg = "."
   , suggests = FALSE
