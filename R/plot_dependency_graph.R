@@ -19,6 +19,7 @@ plot_dependency_graph <- function(pkg = ".", suggests = FALSE, option = "cividis
 
   dependencies <- unlist(strsplit(c(pkg$depends, pkg$imports), split = "\n"))
   dependencies <- gsub("\\n| \\(.+\\)|,", "", dependencies)
+  dpendencies <- dependencies[dependencies != "R"]
   dependency_graph <- miniCRAN::makeDepGraph(
     pkg = dependencies
     , suggests = suggests
