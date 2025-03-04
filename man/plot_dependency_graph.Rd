@@ -12,9 +12,18 @@ plot_dependency_graph(pkg = ".", suggests = FALSE, option = "cividis", ...)
 
 \item{suggests}{If TRUE, retrieves Suggests dependencies (non-recursively)}
 
-\item{option}{A character string indicating the colormap option to use. Four
-options are available: "magma" (or "A"), "inferno" (or "B"), "plasma" (or "C"),
-"viridis" (or "D", the default option) and "cividis" (or "E").}
+\item{option}{A character string indicating the color map option to use.
+Eight options are available:
+\itemize{
+\item \code{"magma"} (or \code{"A"})
+\item \code{"inferno"} (or \code{"B"})
+\item \code{"plasma"} (or \code{"C"})
+\item \code{"viridis"} (or \code{"D"})
+\item \code{"cividis"} (or \code{"E"})
+\item \code{"rocket"} (or \code{"F"})
+\item \code{"mako"} (or \code{"G"})
+\item \code{"turbo"} (or \code{"H"})
+}}
 
 \item{...}{
   Arguments passed on to \code{\link[miniCRAN:makeDepGraph]{miniCRAN::makeDepGraph}}
@@ -23,7 +32,7 @@ options are available: "magma" (or "A"), "inferno" (or "B"), "plasma" (or "C"),
 element is a vector of available packages.  Defaults to reading this list
 from CRAN, using \code{\link[=available.packages]{available.packages()}}}
     \item{\code{repos}}{URL(s) of the 'contrib' sections of the repositories, e.g.
-\code{"http://cran.us.r-project.org"}. Passed to \code{\link[=available.packages]{available.packages()}}}
+\code{"https://cran.us.r-project.org"}. Passed to \code{\link[=available.packages]{available.packages()}}}
     \item{\code{type}}{Possible values are (currently) "source", "mac.binary" and
 "win.binary": the binary types can be listed and downloaded but not
 installed on other platforms.  Passed to \code{\link[=download.packages]{download.packages()}}.}
